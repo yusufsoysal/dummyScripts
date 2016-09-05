@@ -59,7 +59,7 @@ def findMaximumBranchNameLength(def branches){
 }
 
 def sendRequest(String branchName, String authString) {
-    def json = ("http://jira.n11.com:8080/rest/api/latest/issue/" + branchName).toURL().getText(requestProperties: [Authorization: 'Basic ' + authString])
+    def json = ("http://jiraServerIp.com:8080/rest/api/latest/issue/" + branchName).toURL().getText(requestProperties: [Authorization: 'Basic ' + authString])
 
     def jsonSlurper = new JsonSlurper()
     return jsonSlurper.parseText(json)

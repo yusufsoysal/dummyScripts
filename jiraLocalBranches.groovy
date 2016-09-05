@@ -17,7 +17,7 @@ def ANSI_WHITE = "\u001B[37m";
 def password = System.console().readPassword 'Enter password for yusuf.soysal: '
 def authString = ("yusuf.soysal:" + password).bytes.encodeBase64().toString()
 
-def workingDir = "/Users/yusufsoysal/Development/dmall";
+def workingDir = "/Users/yusufsoysal/Development";
 
 def branches = getBranchList(workingDir)
 
@@ -72,7 +72,7 @@ def removeBranch(String workingDir, String branch){
 }
 
 def sendRequest(String branchName, String authString) {
-    def json = ("http://jira.n11.com:8080/rest/api/latest/issue/" + branchName).toURL().getText(requestProperties: [Authorization: 'Basic ' + authString])
+    def json = ("http://jiraServerIp:8080/rest/api/latest/issue/" + branchName).toURL().getText(requestProperties: [Authorization: 'Basic ' + authString])
 
     def jsonSlurper = new JsonSlurper()
     return jsonSlurper.parseText(json)

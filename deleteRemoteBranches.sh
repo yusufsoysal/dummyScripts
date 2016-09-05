@@ -1,5 +1,5 @@
 #for k in `git branch -r | perl -pe 's/^..(.*?)( ->.*)?$/\1/'`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r
-cd /Users/yusufsoysal/Development/dmall
+cd /Users/yusufsoysal/Development
 for k in `cat ~/scripts/branchList.txt | sed -e 's/.*origin\/\(.*\)/\1/g'`; 
    do `git push origin --delete $k`; 
 done
